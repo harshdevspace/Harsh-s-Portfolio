@@ -1,112 +1,147 @@
-// Script JS - Interactive Logic
+/**
+ * ==============================================================================
+ * PORTFOLIO JAVASCRIPT - HARSH MISHRA
+ * Clean, modular, and easy to explain vanilla JavaScript.
+ * ==============================================================================
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
 
-  // 1. Mobile Menu Toggle
+  // ----------------------------------------------------------------------------
+  // 1. INITIALIZE LUCIDE ICONS
+  // ----------------------------------------------------------------------------
+  // Lucide is a lightweight open-source icon library.
+  // We call createIcons() on page load to replace <i> tags with SVG icons.
+  function initIcons() {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+  initIcons();
+
+  // ----------------------------------------------------------------------------
+  // 2. MOBILE NAVIGATION MENU TOGGLE
+  // ----------------------------------------------------------------------------
+  // Handles opening and closing the mobile navigation drawer.
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   const navItems = document.querySelectorAll('.nav-links a');
 
   if (menuToggle && navLinks) {
+    // Toggle menu state on hamburger icon click
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       const icon = menuToggle.querySelector('i');
       if (icon) {
-        if (navLinks.classList.contains('active')) {
-          icon.setAttribute('data-lucide', 'x');
-        } else {
-          icon.setAttribute('data-lucide', 'menu');
-        }
-        lucide.createIcons();
+        const isOpen = navLinks.classList.contains('active');
+        icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+        initIcons();
       }
     });
 
-    // Close menu when clicking on nav link
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = menuToggle.querySelector('i');
-        if (icon) {
-          icon.setAttribute('data-lucide', 'menu');
-          lucide.createIcons();
+    // Close the menu when any navigation link is clicked
+    navItems.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            initIcons();
+          }
         }
       });
     });
   }
 
-  // 2. Navbar Scroll Style
+  // ----------------------------------------------------------------------------
+  // 3. NAVBAR STICKY SCROLL EFFECT
+  // ----------------------------------------------------------------------------
+  // Adds a background blur and shadow to the navbar once the user scrolls down.
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  }
 
-  // 3. Typing Effect
-  const typingText = document.getElementById('typing-text');
-  const phrases = [
+  // ----------------------------------------------------------------------------
+  // 4. HERO SECTION TYPING ANIMATION
+  // ----------------------------------------------------------------------------
+  // Dynamically types and erases developer titles in a loop.
+  const typingElement = document.getElementById('typing-text');
+  const roles = [
     'Software Developer',
     'Full Stack Developer',
     'B.Tech CSE Student @ SRMCEM',
     'Java & DSA Problem Solver'
   ];
-  let phraseIndex = 0;
-  let characterIndex = 0;
+  
+  let roleIndex = 0;
+  let charIndex = 0;
   let isDeleting = false;
   let typingSpeed = 100;
 
-  function type() {
-    if (!typingText) return;
-    const currentPhrase = phrases[phraseIndex];
-    
+  function typeRole() {
+    if (!typingElement) return;
+
+    const currentRole = roles[roleIndex];
+
     if (isDeleting) {
-      typingText.textContent = currentPhrase.substring(0, characterIndex - 1);
-      characterIndex--;
-      typingSpeed = 45; // faster deleting
+      // Erase character
+      typingElement.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 45; // Faster deletion
     } else {
-      typingText.textContent = currentPhrase.substring(0, characterIndex + 1);
-      characterIndex++;
-      typingSpeed = 110; // normal typing
+      // Type character
+      typingElement.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 100; // Normal typing speed
     }
 
-    if (!isDeleting && characterIndex === currentPhrase.length) {
+    // Word completed -> Pause and then delete
+    if (!isDeleting && charIndex === currentRole.length) {
       isDeleting = true;
-      typingSpeed = 1600; // Pause at full word
-    } else if (isDeleting && characterIndex === 0) {
+      typingSpeed = 1800; // Pause at end of word
+    } 
+    // Word deleted -> Switch to next word
+    else if (isDeleting && charIndex === 0) {
       isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 450; // Pause before typing next word
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingSpeed = 400; // Pause before typing next word
     }
 
-    setTimeout(type, typingSpeed);
-  }
-  
-  if (typingText) {
-    type();
+    setTimeout(typeRole, typingSpeed);
   }
 
-  // 4. Canvas Particle Network Background
+  if (typingElement) {
+    typeRole();
+  }
+
+  // ----------------------------------------------------------------------------
+  // 5. INTERACTIVE MONOCHROME PARTICLE CANVAS
+  // ----------------------------------------------------------------------------
+  // Renders a lightweight, high-performance particle network on HTML5 canvas.
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
-    const maxParticles = 60;
+    const maxParticles = 55;
 
+    // Track mouse coordinates for subtle interactive repulsion
     const mouse = {
       x: null,
       y: null,
-      radius: 120
+      radius: 100
     };
 
-    window.addEventListener('mousemove', (event) => {
-      mouse.x = event.x;
-      mouse.y = event.y;
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
     });
 
     window.addEventListener('mouseout', () => {
@@ -114,141 +149,145 @@ document.addEventListener('DOMContentLoaded', () => {
       mouse.y = null;
     });
 
-    function resizeCanvas() {
+    // Resize canvas dynamically to match the viewport
+    function setCanvasDimensions() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initParticles();
+      createParticles();
     }
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', setCanvasDimensions);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    // Particle Object Model
     class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
+      constructor(x, y, dx, dy, size, color) {
         this.x = x;
         this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
+        this.dx = dx;
+        this.dy = dy;
         this.size = size;
         this.color = color;
       }
-      
+
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
         ctx.fill();
       }
-      
+
       update() {
-        if (this.x > canvas.width || this.x < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-          this.directionY = -this.directionY;
+        // Bounce on screen edges
+        if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+        if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+
+        // Subtle mouse interaction
+        if (mouse.x !== null && mouse.y !== null) {
+          const distX = mouse.x - this.x;
+          const distY = mouse.y - this.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+          
+          if (distance < mouse.radius) {
+            this.x -= (distX / distance) * 1.2;
+            this.y -= (distY / distance) * 1.2;
+          }
         }
 
-        // Mouse interact
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < mouse.radius + this.size) {
-          if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-            this.x += 1.5;
-          }
-          if (mouse.x > this.x && this.x > this.size * 10) {
-            this.x -= 1.5;
-          }
-          if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-            this.y += 1.5;
-          }
-          if (mouse.y > this.y && this.y > this.size * 10) {
-            this.y -= 1.5;
-          }
-        }
-        
-        this.x += this.directionX;
-        this.y += this.directionY;
+        this.x += this.dx;
+        this.y += this.dy;
         this.draw();
       }
     }
 
-    function initParticles() {
+    // Populate particle pool with subtle white & grey particles
+    function createParticles() {
       particlesArray = [];
-      let numberOfParticles = Math.min(maxParticles, (canvas.width * canvas.height) / 24000);
-      
-      for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1;
-        let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 0.35) - 0.175;
-        let directionY = (Math.random() * 0.35) - 0.175;
-        let color = i % 2 === 0 ? 'rgba(255, 255, 255, 0.22)' : 'rgba(156, 163, 175, 0.22)';
+      const count = Math.min(maxParticles, Math.floor((canvas.width * canvas.height) / 25000));
 
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+      for (let i = 0; i < count; i++) {
+        const size = Math.random() * 1.8 + 0.8;
+        const x = Math.random() * (canvas.width - size * 4) + size * 2;
+        const y = Math.random() * (canvas.height - size * 4) + size * 2;
+        const dx = (Math.random() - 0.5) * 0.4;
+        const dy = (Math.random() - 0.5) * 0.4;
+        const color = i % 2 === 0 ? 'rgba(255, 255, 255, 0.22)' : 'rgba(161, 161, 170, 0.2)';
+
+        particlesArray.push(new Particle(x, y, dx, dy, size, color));
       }
     }
 
-    function connect() {
-      let opacityValue = 1;
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-          let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-            + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-          
-          if (distance < (canvas.width / 8) * (canvas.height / 8)) {
-            opacityValue = 1 - (distance / 20000);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.08})`;
+    // Connect nearby particles with subtle monochrome lines
+    function connectParticles() {
+      for (let i = 0; i < particlesArray.length; i++) {
+        for (let j = i + 1; j < particlesArray.length; j++) {
+          const dx = particlesArray[i].x - particlesArray[j].x;
+          const dy = particlesArray[i].y - particlesArray[j].y;
+          const distance = dx * dx + dy * dy;
+          const maxDistance = 14000;
+
+          if (distance < maxDistance) {
+            const opacity = 1 - (distance / maxDistance);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.06})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
             ctx.stroke();
           }
         }
       }
     }
 
-    function animate() {
+    // Animation Loop
+    function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
       }
-      connect();
-      requestAnimationFrame(animate);
+      connectParticles();
+      requestAnimationFrame(animateParticles);
     }
 
-    initParticles();
-    animate();
+    createParticles();
+    animateParticles();
   }
 
-  // 5. Scroll-spy with Intersection Observer
+  // ----------------------------------------------------------------------------
+  // 6. SCROLL-SPY ACTIVE NAV LINK HIGHLIGHTING
+  // ----------------------------------------------------------------------------
+  // Uses IntersectionObserver to automatically update active navbar link as user scrolls.
   const sections = document.querySelectorAll('section');
-  const scrollspyLinks = document.querySelectorAll('.nav-links a');
+  const navLinkElements = document.querySelectorAll('.nav-links a');
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -55% 0px',
-    threshold: 0
-  };
+  if (sections.length > 0 && navLinkElements.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        scrollspyLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, observerOptions);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('id');
+          navLinkElements.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
 
-  sections.forEach(section => observer.observe(section));
+    sections.forEach(section => observer.observe(section));
+  }
 
-  // 6. Contact Form Simulation
+  // ----------------------------------------------------------------------------
+  // 7. CONTACT FORM SUBMISSION
+  // ----------------------------------------------------------------------------
+  // Handles form submission, simulates network request, and displays success state.
   const contactForm = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
 
@@ -257,28 +296,30 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const submitBtn = contactForm.querySelector('.submit-btn');
-      const originalBtnText = submitBtn.innerHTML;
+      const originalBtnHtml = submitBtn.innerHTML;
+
+      // Show loading indicator
       submitBtn.innerHTML = 'Sending... <i data-lucide="loader" class="spin"></i>';
       submitBtn.disabled = true;
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
+      initIcons();
 
+      // Simulate sending data (1.2s delay)
       setTimeout(() => {
         contactForm.reset();
         contactForm.style.display = 'none';
         formSuccess.style.display = 'flex';
-        
+        initIcons();
+
+        // Restore form after 7 seconds
         setTimeout(() => {
           formSuccess.style.display = 'none';
           contactForm.style.display = 'flex';
-          submitBtn.innerHTML = originalBtnText;
+          submitBtn.innerHTML = originalBtnHtml;
           submitBtn.disabled = false;
-          if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-          }
-        }, 8000);
+          initIcons();
+        }, 7000);
       }, 1200);
     });
   }
+
 });
