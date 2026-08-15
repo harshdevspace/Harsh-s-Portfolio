@@ -298,12 +298,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('.submit-btn');
       const originalBtnHtml = submitBtn.innerHTML;
 
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const waText = `New portfolio message%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ASubject: ${encodeURIComponent(subject)}%0AMessage: ${encodeURIComponent(message)}`;
+      const waUrl = `https://wa.me/918604740859?text=${waText}`;
+
       // Show loading indicator
-      submitBtn.innerHTML = 'Sending... <i data-lucide="loader" class="spin"></i>';
+      submitBtn.innerHTML = 'Opening WhatsApp... <i data-lucide="loader" class="spin"></i>';
       submitBtn.disabled = true;
       initIcons();
 
-      // Simulate sending data (1.2s delay)
+      // Open WhatsApp with the message pre-filled so it actually reaches Harsh's phone
+      window.open(waUrl, '_blank');
+
       setTimeout(() => {
         contactForm.reset();
         contactForm.style.display = 'none';
@@ -318,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           initIcons();
         }, 7000);
-      }, 1200);
+      }, 800);
     });
   }
 
