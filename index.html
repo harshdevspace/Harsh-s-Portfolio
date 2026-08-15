@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Harsh Mishra - Software Developer & B.Tech CSE Student (2024-2028) at SRMCEM, Lucknow. Full-Stack Development, Java, and DSA.">
+  <title>Harsh Mishra | Software Developer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        HARSH<span class="logo-dot"></span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Let's Talk</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span> Available for Opportunities
+        </div>
+        <h1>Hi, I'm <span class="text-gradient">Harsh Mishra</span></h1>
+        <h2>
+          <span>A </span>
+          <span class="text-gradient-teal" id="typing-text"></span>
+          <span class="typed-cursor">|</span>
+        </h2>
+        <p>
+          Aspiring full-stack developer with hands-on project experience building and deploying web applications, and a 20-day full-stack internship. Comfortable with HTML, CSS, and C++ fundamentals, with growing exposure to React.js and Java gained through project work. Currently building depth in Java and data structures & algorithms ahead of placement interviews.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">
+            View Projects <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+          </a>
+          <a href="#experience" class="btn btn-outline">Experience</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>7.87</h3>
+            <p>B.Tech CGPA</p>
+          </div>
+          <div class="stat-item">
+            <h3>2024 - 2028</h3>
+            <p>B.Tech CSE Batch</p>
+          </div>
+          <div class="stat-item">
+            <h3>20 Days</h3>
+            <p>Full-Stack Internship</p>
+          </div>
+          <div class="stat-item">
+            <h3>2+</h3>
+            <p>Hackathon Involvements</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="profile-card glass-card">
+          <div class="profile-avatar">
+            <div class="avatar-inner">
+              <i data-lucide="code-2" style="width: 48px; height: 48px; color: var(--primary);"></i>
+            </div>
+          </div>
+          <div class="profile-info">
+            <h3>Harsh Mishra</h3>
+            <p>Software Developer</p>
+            <div class="profile-meta-tags">
+              <span class="profile-meta-pill"><i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Lucknow, UP</span>
+              <span class="profile-meta-pill"><i data-lucide="graduation-cap" style="width: 14px; height: 14px;"></i> SRMCEM</span>
+            </div>
+            <div class="profile-socials">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub" title="GitHub">
+                <i data-lucide="github" style="width: 18px; height: 18px;"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn" title="LinkedIn">
+                <i data-lucide="linkedin" style="width: 18px; height: 18px;"></i>
+              </a>
+              <a href="mailto:harshmishra98891@gmail.com" class="btn-icon" aria-label="Email" title="Email Harsh">
+                <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+              </a>
+              <a href="tel:8604740859" class="btn-icon" aria-label="Call" title="Call Harsh">
+                <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Education Section -->
+  <section class="about" id="about" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>About & Education</h2>
+        <p>Academic background, educational foundation, and software development focus.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-info">
+          <h3>Driven to Build & Learn</h3>
+          <p>
+            I am currently pursuing my <strong>B.Tech in Computer Science & Engineering (2024 - 2028)</strong> at <strong>Shri Ramswaroop Memorial College of Engineering and Management (SRMCEM)</strong> in Lucknow, Uttar Pradesh, maintaining a strong academic standing with a <strong>7.87 CGPA</strong>.
+          </p>
+          <p>
+            My engineering philosophy centers around practical implementation—transforming core computer science concepts into robust digital products. I combine solid problem-solving fundamentals in C++ and Java with modern web application engineering using React.js, Tailwind CSS, and MySQL.
+          </p>
+          
+          <div class="about-details">
+            <div class="detail-box">
+              <h5>Degree</h5>
+              <p>B.Tech CSE</p>
+            </div>
+            <div class="detail-box">
+              <h5>Graduation</h5>
+              <p>2024 - 2028</p>
+            </div>
+            <div class="detail-box">
+              <h5>Academic Score</h5>
+              <p>7.87 CGPA</p>
+            </div>
+            <div class="detail-box">
+              <h5>Location</h5>
+              <p>Lucknow, UP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-card glass-card">
+          <div class="card-header-badge">
+            <i data-lucide="graduation-cap" style="width: 20px; height: 20px; color: var(--primary);"></i>
+            <span>Education</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-period">2024 — 2028</div>
+            <h4 class="edu-degree">Bachelor of Technology (B.Tech)</h4>
+            <div class="edu-major">Computer Science & Engineering</div>
+            <div class="edu-institution">Shri Ramswaroop Memorial College of Engineering and Management</div>
+            <div class="edu-score-badge">
+              <span class="score-label">Current CGPA:</span>
+              <span class="score-value">7.87</span>
+            </div>
+            <p class="edu-desc">
+              Core coursework covers Data Structures & Algorithms, Object-Oriented Programming (Java/C++), Database Management Systems (MySQL), and Web Development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internship Experience Section -->
+  <section class="experience" id="experience" style="padding: 100px 0; background: rgba(13, 19, 33, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Internship Experience</h2>
+        <p>Practical industry training and hands-on software development exposure.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="experience-card glass-card">
+        <div class="exp-header">
+          <div class="exp-role-group">
+            <div class="exp-icon-box">
+              <i data-lucide="briefcase" style="width: 24px; height: 24px; color: var(--primary);"></i>
+            </div>
+            <div>
+              <h3 class="exp-role">Full Stack Developer Intern</h3>
+              <h4 class="exp-org">Shri Ramswaroop Memorial College of Engineering and Management</h4>
+            </div>
+          </div>
+          <div class="exp-duration-badge">
+            <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
+            <span>20 Days</span>
+          </div>
+        </div>
+
+        <div class="exp-body">
+          <ul class="exp-bullets">
+            <li>
+              <i data-lucide="check-circle-2" class="exp-bullet-icon"></i>
+              <span>Contributed to an end-to-end full-stack web application utilizing <strong>React.js</strong> and <strong>Tailwind CSS</strong> on the frontend and a <strong>Java</strong> backend.</span>
+            </li>
+            <li>
+              <i data-lucide="check-circle-2" class="exp-bullet-icon"></i>
+              <span>Gained comprehensive practical exposure to both modern <strong>UI/UX development</strong> and <strong>server-side logic</strong>, REST API integrations, and database handling.</span>
+            </li>
+          </ul>
+
+          <div class="exp-tech-stack">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Full-Stack Architecture</span>
+          </div>
+
+          <div class="exp-actions">
+            <a href="#certifications" class="btn btn-outline btn-sm">
+              <i data-lucide="award" style="width: 16px; height: 16px;"></i> View Certificate Reference
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section class="skills" id="skills" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical Skills</h2>
+        <p>Curated technical proficiencies, development tools, and ongoing focus areas from my resume.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="skills-categories-grid">
+        <!-- Programming Languages -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="code"></i></div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="pill-dot"></span> Java</div>
+            <div class="skill-pill"><span class="pill-dot"></span> C++</div>
+            <div class="skill-pill"><span class="pill-dot"></span> HTML</div>
+            <div class="skill-pill"><span class="pill-dot"></span> CSS</div>
+          </div>
+        </div>
+
+        <!-- Frontend Development -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="layout"></i></div>
+            <h3>Frontend & UI</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="pill-dot"></span> Tailwind CSS</div>
+            <div class="skill-pill"><span class="pill-dot"></span> React.js</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Responsive Design</div>
+            <div class="skill-pill"><span class="pill-dot"></span> HTML5 / CSS3</div>
+          </div>
+        </div>
+
+        <!-- Database & Backend -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="database"></i></div>
+            <h3>Database</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="pill-dot"></span> MySQL</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Relational Schema Design</div>
+            <div class="skill-pill"><span class="pill-dot"></span> SQL Queries</div>
+          </div>
+        </div>
+
+        <!-- Tools & Deployment -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="wrench"></i></div>
+            <h3>Tools & Deployment</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="pill-dot"></span> Git</div>
+            <div class="skill-pill"><span class="pill-dot"></span> GitHub</div>
+            <div class="skill-pill"><span class="pill-dot"></span> VS Code</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Render</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Vercel</div>
+          </div>
+        </div>
+
+        <!-- Currently Learning & Focus -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="sparkles"></i></div>
+            <h3>Currently Learning</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill pill-highlight"><span class="pill-dot highlight"></span> DSA in Java</div>
+            <div class="skill-pill pill-highlight"><span class="pill-dot highlight"></span> JavaScript (Advanced)</div>
+            <div class="skill-pill pill-highlight"><span class="pill-dot highlight"></span> React.js Ecosystem</div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category-card glass-card">
+          <div class="cat-header">
+            <div class="cat-icon-box"><i data-lucide="users"></i></div>
+            <h3>Soft Skills</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="pill-dot"></span> Problem-Solving</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Teamwork & Collaboration</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Clear Communication</div>
+            <div class="skill-pill"><span class="pill-dot"></span> Adaptability</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects" style="padding: 100px 0; background: rgba(13, 19, 33, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p>Live, responsive web applications built and deployed by me.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="projects-grid-featured">
+        <!-- Project 1: Zomato Clone -->
+        <div class="project-card glass-card featured-project">
+          <div class="project-cover">
+            <div class="project-cover-pattern"></div>
+            <div class="project-badge">Featured Web App</div>
+            <i data-lucide="utensils" class="project-cover-icon"></i>
+          </div>
+          <div class="project-details">
+            <div class="project-tags">
+              <span class="project-tag">React.js</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Backend API</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <h3 class="project-title">Zomato Clone</h3>
+            <p class="project-desc">
+              Built a responsive food-ordering web application featuring dynamic restaurant listings, categorized menu catalogs, and an interactive cart system. Integrated a backend API to efficiently handle real-time data for restaurants, food items, and incoming customer orders.
+            </p>
+            <div class="project-links">
+              <a href="https://zomato-clone-omega-ashy.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i> Live Demo
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <i data-lucide="github" style="width: 16px; height: 16px;"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Personal Portfolio Website -->
+        <div class="project-card glass-card featured-project">
+          <div class="project-cover">
+            <div class="project-cover-pattern"></div>
+            <div class="project-badge">Personal Portfolio</div>
+            <i data-lucide="globe" class="project-cover-icon"></i>
+          </div>
+          <div class="project-details">
+            <div class="project-tags">
+              <span class="project-tag">React.js</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Responsive UI</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-desc">
+              Designed and developed a sleek, responsive developer portfolio to highlight hands-on engineering projects, internship experience, skills, academic record, and hackathon accomplishments with modern visual aesthetics.
+            </p>
+            <div class="project-links">
+              <a href="https://harsh-s-portfolio-opal.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i> Live Demo
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <i data-lucide="github" style="width: 16px; height: 16px;"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements & Certifications Section -->
+  <section class="achievements" id="achievements" style="padding: 100px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Achievements & Certifications</h2>
+        <p>Hackathon milestones, competitive participations, and verified credentials.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="achieve-cert-grid">
+        <!-- Hackathons & Achievements -->
+        <div class="achieve-column">
+          <h3 class="column-title"><i data-lucide="trophy" style="color: var(--primary);"></i> Competitions & Hackathons</h3>
+          
+          <div class="achieve-card glass-card">
+            <div class="achieve-badge">4th Place</div>
+            <div class="achieve-content">
+              <h4>QR Code-Based College Infrastructure Reporting System</h4>
+              <div class="achieve-event">College Hackathon • SRMCEM</div>
+              <p>
+                Secured 4th place by designing and presenting an innovative IoT/Web-based reporting system allowing students and faculty to scan QR codes on campus infrastructure to immediately file and track maintenance requests.
+              </p>
+            </div>
+          </div>
+
+          <div class="achieve-card glass-card">
+            <div class="achieve-badge" style="background: rgba(255, 255, 255, 0.08); color: var(--text-main);">Participant</div>
+            <div class="achieve-content">
+              <h4>Smart India Hackathon (SIH) — 'College Dekho'</h4>
+              <div class="achieve-event">National Level Hackathon Concept</div>
+              <p>
+                Participated in the prestigious Smart India Hackathon with 'College Dekho', an intuitive college discovery and recommendation platform concept designed to assist prospective students.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cert-column" id="certifications">
+          <h3 class="column-title"><i data-lucide="award" style="color: var(--primary);"></i> Verified Certifications</h3>
+
+          <div class="cert-card glass-card">
+            <div class="cert-icon-wrap">
+              <i data-lucide="file-check" style="width: 28px; height: 28px; color: var(--primary);"></i>
+            </div>
+            <div class="cert-details">
+              <h4>Full Stack Development Internship Certificate</h4>
+              <div class="cert-issuer">Shri Ramswaroop Memorial College of Engineering and Management</div>
+              <p>
+                Awarded upon successful completion of the 20-day intensive Full Stack Development Internship covering React.js, Tailwind CSS, and Java server-side engineering.
+              </p>
+              <div class="cert-action">
+                <span class="verified-tag"><i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Verified Credential</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem Solving / DSA Focus Banner -->
+          <div class="dsa-focus-box glass-card">
+            <div class="dsa-focus-header">
+              <i data-lucide="cpu" style="width: 24px; height: 24px; color: var(--primary);"></i>
+              <h4>Data Structures & Algorithms in Java</h4>
+            </div>
+            <p>
+              Currently building algorithmic depth and sharpening problem-solving abilities in Java ahead of upcoming placement drives, practicing core concepts including Arrays, Linked Lists, Trees, Graphs, Sorting, and Dynamic Programming.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact" style="padding: 100px 0; background: rgba(13, 19, 33, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p>Interested in collaborating, hiring, or discussing software projects? Feel free to reach out!</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-sidebar">
+          <a href="mailto:harshmishra98891@gmail.com" class="contact-info-card glass-card">
+            <div class="contact-icon-box">
+              <i data-lucide="mail"></i>
+            </div>
+            <div class="contact-text-box">
+              <h4>Email Me</h4>
+              <p>harshmishra98891@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:8604740859" class="contact-info-card glass-card">
+            <div class="contact-icon-box">
+              <i data-lucide="phone"></i>
+            </div>
+            <div class="contact-text-box">
+              <h4>Call Me</h4>
+              <p>+91 8604740859</p>
+            </div>
+          </a>
+
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon-box">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div class="contact-text-box">
+              <h4>Location</h4>
+              <p>Lucknow, Uttar Pradesh, India</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card glass-card">
+            <div class="contact-icon-box">
+              <i data-lucide="graduation-cap"></i>
+            </div>
+            <div class="contact-text-box">
+              <h4>Institution</h4>
+              <p>SRMCEM (B.Tech CSE 2024-2028)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-container glass-card" id="form-container">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" class="form-control" placeholder="Subject of message" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" placeholder="Hi Harsh, I'd love to connect with you regarding..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">
+              Send Message <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+            </button>
+          </form>
+
+          <!-- Contact Success State -->
+          <div class="form-success-message" id="form-success">
+            <div class="success-icon">
+              <i data-lucide="check"></i>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. Harsh will get back to you shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <a href="#hero" class="footer-logo">
+          HARSH<span class="logo-dot"></span>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Harsh Mishra. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+            <i data-lucide="github"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+            <i data-lucide="linkedin"></i>
+          </a>
+          <a href="mailto:harshmishra98891@gmail.com" class="footer-social-link" aria-label="Email">
+            <i data-lucide="mail"></i>
+          </a>
+          <a href="tel:8604740859" class="footer-social-link" aria-label="Phone">
+            <i data-lucide="phone"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
